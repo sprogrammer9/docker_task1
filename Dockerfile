@@ -1,5 +1,6 @@
-FROM python3
-COPY index.py
-RUN pip install flask \ && export FLASK_APP=app \ && export FLASK_ENV=development 
+FROM python:3.8-slim-buster
+COPY index.py .
+RUN  pip install --upgrade pip  && pip install flask 
+ENV FLASK_APP=app
 EXPOSE 8080
 CMD flask run
